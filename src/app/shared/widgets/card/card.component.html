@@ -1,0 +1,49 @@
+<div class="text">
+  <h4>{{ label }}</h4>
+
+<span *ngIf="percentage > 100">
+  <span>
+    <mat-icon style="color: green">trending_up</mat-icon>
+  </span>
+
+  <span class="percentage_up">
+    +{{ percentage - 100 }}%
+  </span>
+</span>
+
+  <span *ngIf="percentage === 100">
+  <span>
+    <mat-icon style="color: grey">trending_flat</mat-icon>
+  </span>
+
+  <span class="percentage_flat">
+    {{ 100 - percentage }}%
+  </span>
+</span>
+
+<span *ngIf="percentage < 100">
+  <span>
+    <mat-icon style="color: red">trending_down</mat-icon>
+  </span>
+
+  <span class="percentage_down">
+    -{{ 100 - percentage }}%
+  </span>
+</span>
+
+  <button style="padding: 0" #selectedItem [value]="[currentSelectedMenuItem.x , currentSelectedMenuItem.y]" mat-button [matMenuTriggerFor]="menu">since {{ currentSelectedMenuItem.x }} ▼</button>
+  <mat-menu #menu="matMenu">
+    <ng-template ngFor let-item [ngForOf]="chartOptions.series[0].data" let-i="index">
+      <button (click)="triggerCardMenu(item)" mat-menu-item>
+        {{ item.x }}
+      </button>
+    </ng-template>
+  </mat-menu>
+</div>
+
+<div class="widget">
+  <highcharts-chart [(update)]="updateGraph" [Highcharts]="Highcharts" [options]="chartOptions" style="width: 100%; height: 200px; display: block"></highcharts-chart>
+</div>
+
+<button (click)="changeData(selectedItem)" mat-raised-button>Click Me</button>
+

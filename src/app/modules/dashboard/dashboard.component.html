@@ -1,0 +1,37 @@
+<div>
+  <app-widget-area #bigChart></app-widget-area>
+</div>
+
+<br>
+
+<mat-divider></mat-divider>
+
+<br>
+
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px" class="stats-cards">
+  <mat-card fxFlex="25">
+    <app-widget-card (colorChartEvent)="bigChart.handleColorChangeEventEmitter()" (initChartEvent)="bigChart.handleInitEventEmitter($event)" (updateChartEvent)="bigChart.handleRandomDataEventEmitter($event)" label="Asia" dataset="Asia"></app-widget-card>
+  </mat-card>
+  <mat-card fxFlex="25">
+    <app-widget-card (colorChartEvent)="bigChart.handleColorChangeEventEmitter()" (initChartEvent)="bigChart.handleInitEventEmitter($event)" (updateChartEvent)="bigChart.handleRandomDataEventEmitter($event)" label="Africa" dataset="Africa"></app-widget-card>
+  </mat-card>
+  <mat-card fxFlex="25">
+    <app-widget-card (colorChartEvent)="bigChart.handleColorChangeEventEmitter()" (initChartEvent)="bigChart.handleInitEventEmitter($event)" (updateChartEvent)="bigChart.handleRandomDataEventEmitter($event)" label="Europe" dataset="Europe"></app-widget-card>
+  </mat-card>
+  <mat-card fxFlex="25">
+    <app-widget-card (colorChartEvent)="bigChart.handleColorChangeEventEmitter()" (initChartEvent)="bigChart.handleInitEventEmitter($event)" (updateChartEvent)="bigChart.handleRandomDataEventEmitter($event)" label="America"  dataset="America"></app-widget-card>
+  </mat-card>
+</div>
+
+<br>
+
+<mat-divider></mat-divider>
+
+<br>
+
+<div>
+  <div>Table</div>
+  <div>Pie Chart</div>
+</div>
+
+
